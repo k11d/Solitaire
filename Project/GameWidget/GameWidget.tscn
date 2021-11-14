@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Grid/Grid.tscn" type="PackedScene" id=1]
+[ext_resource path="res://GameWidget/GameWidget.gd" type="Script" id=2]
+
+[node name="GameWidget" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Background" type="ColorRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+color = Color( 0.278431, 0.25098, 0.196078, 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Grid" parent="." instance=ExtResource( 1 )]
+
+[connection signal="item_rect_changed" from="." to="." method="_on_GameWidget_item_rect_changed"]
