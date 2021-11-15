@@ -65,6 +65,7 @@ func create_grid() -> void:
 				if !(Vector2(x,y) in balls):
 					balls[Vector2(x,y)] = spawn_entity(ball_base_scene, Vector2(x,y))
 
+
 func spawn_entity(scene : PackedScene, gpos : Vector2) -> Ball:
 	var b : Ball = scene.instance()
 	add_child(b)
