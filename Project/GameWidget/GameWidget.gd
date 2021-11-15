@@ -2,6 +2,7 @@ extends Control
 
 
 func init_grid() -> void:
+	$Grid.clear_grid()
 	$Grid.create_grid()
 
 func connect_score_value(listener : Node, method : String) -> void:
