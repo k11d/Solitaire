@@ -70,7 +70,7 @@ func spawn_entity(scene : PackedScene, gpos : Vector2) -> Ball:
 	b.connect("mouse_hovering", self, "_on_mouse_hovering_ball")
 	balls[gpos] = b
 	b.position = grid2real(gpos)
-	b.rotation_degrees = randf() * 90
+	b.rotation_degrees = randf() * 360
 	return b
 
 func move_ball(ball : Ball, intent_move : Vector2) -> void:
