@@ -11,6 +11,7 @@ const OVERLAY := [
 		['0','0','0','#','#','#','0','0','0'],
 		['0','0','0','#','#','#','0','0','0'],
 ]
+
 export(PackedScene) onready var ball_base_scene
 
 
