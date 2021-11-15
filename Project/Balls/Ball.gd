@@ -17,6 +17,9 @@ signal mouse_hovering(me)
 onready var tween := $Tween
 
 
+func _ready():
+	apply_colors()
+
 func _on_Base_mouse_entered() -> void:
 	emit_signal("mouse_hovering", self)
 
