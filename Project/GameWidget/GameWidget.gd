@@ -1,8 +1,6 @@
 extends Control
 
 func _ready() -> void:
-	seed(42)
-	randomize()
 	$Grid.create_grid()
 
 func _input(event: InputEvent) -> void:
