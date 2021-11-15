@@ -82,6 +82,6 @@ func move_ball(ball : Ball, intent_move : Vector2) -> void:
 			if balls[to_jmp_over] != null and balls[dest] == null:
 				balls[dest] = ball
 				balls[jmp_from] = null
-				balls[to_jmp_over].queue_free()
+				balls[to_jmp_over].tween_fade_out_die()
 				balls[to_jmp_over] = null
-				ball.position = grid2real(dest)
+				ball.tween_move_to(grid2real(dest))
