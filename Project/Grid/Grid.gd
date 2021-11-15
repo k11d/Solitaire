@@ -58,6 +58,7 @@ func grid2real(gpos : Vector2) -> Vector2:
 	return gpos * ball_size + ball_size / 2
 
 func create_grid() -> void:
+	clear_grid()
 	for y in range(grid_size.y):
 		for x in range(grid_size.y):
 			var gpos = Vector2(x,y)
@@ -68,6 +69,13 @@ func create_grid() -> void:
 				if !(gpos in balls):
 					balls[gpos] = spawn_ball(gpos)
 
+func clear_grid() -> void:
+	for key in balls:
+		balls[key].queue_free()
+		balls.erase(key)
+	for key in empty_spots:
+		empty_spots[key].queue_free()
+		empty_spots.erase(key)
 
 func spawn_ball(gpos : Vector2) -> Ball:
 	var b : Ball = ball_base_scene.instance()
