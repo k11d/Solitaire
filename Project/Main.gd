@@ -18,6 +18,7 @@ func _process(_delta: float) -> void:
 		toggle_pause()
 
 func _on_ButtonQuit_pressed() -> void:
+	save_game()
 	get_tree().quit()
 
 func _on_ButtonNewGame_pressed() -> void:
@@ -46,4 +47,11 @@ func toggle_pause() -> void:
 		$UI/Overlay.hide()
 		$UI/StartMenu.hide()
 
-
+func save_game() -> void:
+	# TODO
+	var grid_state = {
+		"balls" : $GameWidget/Grid.balls,
+		"empty" : $GameWidget/Grid.empty_spots,
+		"score" : $GameWidget/Grid.score
+	}
+	
