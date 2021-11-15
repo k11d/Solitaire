@@ -1,14 +1,19 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Balls/Ball.gd" type="Script" id=1]
-[ext_resource path="res://Balls/assets/ball_fill_0.png" type="Texture" id=2]
-[ext_resource path="res://Balls/assets/ball_fill_1.png" type="Texture" id=3]
-[ext_resource path="res://Balls/assets/ball_edge.png" type="Texture" id=4]
+[ext_resource path="res://assets/ball_fill_0.png" type="Texture" id=2]
+[ext_resource path="res://assets/ball_fill_1.png" type="Texture" id=3]
+[ext_resource path="res://assets/ball_edge.png" type="Texture" id=4]
+[ext_resource path="res://assets/ball_edge_n.png" type="Texture" id=5]
+[ext_resource path="res://assets/ball_fill_1_n.png" type="Texture" id=6]
+[ext_resource path="res://assets/ball_fill_0_n.png" type="Texture" id=7]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 31.0
 
-[node name="Ball" type="Area2D"]
+[node name="Ball" type="Area2D" groups=["ball"]]
+z_index = 1
+collision_mask = 0
 script = ExtResource( 1 )
 fill_color_0 = Color( 0.207843, 0.690196, 0.92549, 1 )
 fill_color_1 = Color( 0.533333, 0.894118, 0.34902, 1 )
@@ -21,14 +26,17 @@ shape = SubResource( 1 )
 [node name="Fill0" type="Sprite" parent="Sprites"]
 modulate = Color( 0.207843, 0.690196, 0.92549, 1 )
 texture = ExtResource( 2 )
+normal_map = ExtResource( 7 )
 
 [node name="Fill1" type="Sprite" parent="Sprites"]
 modulate = Color( 0.533333, 0.894118, 0.34902, 1 )
 texture = ExtResource( 3 )
+normal_map = ExtResource( 6 )
 
 [node name="Edge" type="Sprite" parent="Sprites"]
 modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 4 )
+normal_map = ExtResource( 5 )
 
 [node name="Tween" type="Tween" parent="."]
 

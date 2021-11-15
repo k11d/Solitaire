@@ -23,7 +23,7 @@ _global_script_class_icons={
 config/name="Solitaire"
 run/main_scene="res://Main.tscn"
 boot_splash/bg_color=Color( 0.227451, 0.227451, 0.227451, 1 )
-config/icon="res://Balls/assets/ball_edge.png"
+config/icon="res://assets/ball_edge.png"
 
 [display]
 
