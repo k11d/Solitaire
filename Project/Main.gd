@@ -24,6 +24,9 @@ func _on_ButtonQuit_pressed() -> void:
 func _on_ButtonNewGame_pressed() -> void:
 	new_game()
 
+func _on_ButtonContinue_pressed() -> void:
+	toggle_pause()
+
 func _on_score_updated(score) -> void:
 	$UI/LabelScore.text = "Score : %d" % score
 
