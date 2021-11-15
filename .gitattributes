@@ -1,1 +1,14 @@
 releases/ filter=lfs diff=lfs merge=lfs -text
+releases/html filter=lfs diff=lfs merge=lfs -text
+releases/Solitaire.apk filter=lfs diff=lfs merge=lfs -text
+releases/Solitaire.apk.idsig filter=lfs diff=lfs merge=lfs -text
+releases/Solitaire.pck filter=lfs diff=lfs merge=lfs -text
+releases/Solitaire.x86_64 filter=lfs diff=lfs merge=lfs -text
+releases/html/Solitaire.js filter=lfs diff=lfs merge=lfs -text
+releases/html/Solitaire.pck filter=lfs diff=lfs merge=lfs -text
+releases/html/Solitaire.png filter=lfs diff=lfs merge=lfs -text
+releases/html/Solitaire.wasm filter=lfs diff=lfs merge=lfs -text
+releases/html/Solitaire.apple-touch-icon.png filter=lfs diff=lfs merge=lfs -text
+releases/html/Solitaire.audio.worklet.js filter=lfs diff=lfs merge=lfs -text
+releases/html/Solitaire.html filter=lfs diff=lfs merge=lfs -text
+releases/html/Solitaire.icon.png filter=lfs diff=lfs merge=lfs -text
