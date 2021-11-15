@@ -10,9 +10,8 @@ radius = 31.0
 
 [node name="Ball" type="Area2D"]
 script = ExtResource( 1 )
-edge_color = Color( 0.164706, 0.164706, 0.164706, 1 )
-fill_color_0 = Color( 0.2, 0.796078, 0.643137, 1 )
-fill_color_1 = Color( 0.227451, 0.537255, 0.835294, 1 )
+fill_color_0 = Color( 0.207843, 0.690196, 0.92549, 1 )
+fill_color_1 = Color( 0.533333, 0.894118, 0.34902, 1 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource( 1 )
@@ -20,15 +19,17 @@ shape = SubResource( 1 )
 [node name="Sprites" type="Node2D" parent="."]
 
 [node name="Fill0" type="Sprite" parent="Sprites"]
-modulate = Color( 0.2, 0.796078, 0.643137, 1 )
+modulate = Color( 0.207843, 0.690196, 0.92549, 1 )
 texture = ExtResource( 2 )
 
 [node name="Fill1" type="Sprite" parent="Sprites"]
-modulate = Color( 0.227451, 0.537255, 0.835294, 1 )
+modulate = Color( 0.533333, 0.894118, 0.34902, 1 )
 texture = ExtResource( 3 )
 
 [node name="Edge" type="Sprite" parent="Sprites"]
-modulate = Color( 0.164706, 0.164706, 0.164706, 1 )
+modulate = Color( 0, 0, 0, 1 )
 texture = ExtResource( 4 )
+
+[node name="Tween" type="Tween" parent="."]
 
 [connection signal="mouse_entered" from="." to="." method="_on_Base_mouse_entered"]
