@@ -89,7 +89,6 @@ func spawn_ball(gpos : Vector2) -> Ball:
 	b.rotation_degrees = randf() * 360
 	return b
 
-
 func spawn_empty_spot(pos) -> void:
 	var gpos = real2grid(pos)
 	if !(gpos in empty_spots):
@@ -97,7 +96,6 @@ func spawn_empty_spot(pos) -> void:
 		add_child(i)
 		i.position = pos
 		empty_spots[gpos] = i
-
 
 func move_ball(ball : Ball, intent_move : Vector2) -> void:
 	var jmp_from = real2grid(ball.position)

@@ -16,7 +16,6 @@ func _unhandled_input(event: InputEvent) -> void:
 			else:
 				$Grid.try_move_picked_at(event.position)
 
-
 func _on_GameWidget_item_rect_changed() -> void:
 	var grid_view_size = $Grid.grid_size * $Grid.ball_size
 	var available_size = get_rect().size

@@ -21,19 +21,19 @@ mouse_filter = 2
 layer = 100
 
 [node name="LabelScore" type="Label" parent="UI"]
-anchor_left = 1.0
-anchor_right = 1.0
-margin_left = -141.0
-margin_bottom = 36.0
+margin_left = 13.0
+margin_top = 10.0
+margin_right = 154.0
+margin_bottom = 46.0
 theme = ExtResource( 3 )
-text = "Score : 00"
+text = "Score : 0"
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
 [node name="Overlay" type="ColorRect" parent="UI"]
 modulate = Color( 1, 1, 1, 0.745098 )
-light_mask = 0
+light_mask = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
 mouse_filter = 2
