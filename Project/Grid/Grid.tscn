@@ -1,11 +1,28 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Balls/Ball.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Grid/Empty.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Grid/Grid.gd" type="Script" id=4]
+
+[sub_resource type="OpenSimplexNoise" id=1]
+
+[sub_resource type="NoiseTexture" id=2]
+noise = SubResource( 1 )
 
 [node name="Grid" type="Node2D"]
 script = ExtResource( 4 )
+__meta__ = {
+"_edit_group_": true
+}
 ball_base_scene = ExtResource( 1 )
+empty_spot_scene = ExtResource( 2 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 576, 576 )
+
+[node name="Light2D" type="Light2D" parent="."]
+position = Vector2( 287, 283 )
+scale = Vector2( 14.172, 13.0753 )
+texture = SubResource( 2 )
+texture_scale = 0.1
+energy = 4.34

@@ -24,7 +24,7 @@ func _on_Base_mouse_entered() -> void:
 	emit_signal("mouse_hovering", self)
 
 func apply_colors() -> void:
-	if $Sprites/Edge:	
+	if $Sprites/Edge:
 		$Sprites/Edge.modulate = edge_color
 	if $Sprites/Fill0:
 		$Sprites/Fill0.modulate = fill_color_0
@@ -51,10 +51,10 @@ func tween_fade_out_die() -> void:
 	yield(tween, "tween_completed")
 	queue_free()
 
-func tween_move_to(gpos) -> void:
+func tween_move_to(pos : Vector2) -> void:
 	z_index += 1
 	tween.interpolate_property(
-		self, "position", position, gpos, 0.2,
+		self, "position", position, pos, 0.2,
 		Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	tween.start()
 	yield(tween, "tween_completed")
