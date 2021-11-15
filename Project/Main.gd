@@ -11,6 +11,7 @@ var game_state = GamePaused
 func _ready():
 	seed(42)
 	randomize()
+	$GameWidget.connect_score_value(self, "_on_score_updated")
 
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("ui_cancel"):
@@ -22,6 +23,9 @@ func _on_ButtonQuit_pressed() -> void:
 
 func _on_ButtonNewGame_pressed() -> void:
 	new_game()
+
+func _on_score_updated(score) -> void:
+	$UI/LabelScore.text = "Score : %d" % score
 
 func new_game() -> void:
 	$CanvasLayer/Overlay.hide()

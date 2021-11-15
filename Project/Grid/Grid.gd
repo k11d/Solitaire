@@ -23,6 +23,9 @@ var hovering_ball = null
 var picked_ball = null
 var balls := {}
 var empty_spots := {}
+var score : int # the lower the better. Best score is 1
+
+signal score_updated(score)
 
 
 func _on_mouse_hovering_ball(ball : Ball) -> void:
@@ -68,6 +71,8 @@ func create_grid() -> void:
 			elif OVERLAY[y][x] == '#':
 				if !(gpos in balls):
 					balls[gpos] = spawn_ball(gpos)
+					score += 1
+	emit_signal("score_updated", score)
 
 func clear_grid() -> void:
 	for key in balls:
@@ -76,6 +81,9 @@ func clear_grid() -> void:
 	for key in empty_spots:
 		empty_spots[key].queue_free()
 		empty_spots.erase(key)
+	score = 0
+	emit_signal("score_updated", score)
+	
 
 func spawn_ball(gpos : Vector2) -> Ball:
 	var b : Ball = ball_base_scene.instance()
@@ -110,3 +118,5 @@ func move_ball(ball : Ball, intent_move : Vector2) -> void:
 				balls[to_jmp_over] = null
 				spawn_empty_spot(ball.position)
 				ball.tween_move_to(grid2real(dest))
+				score -= 1
+				emit_signal("score_updated", score)
