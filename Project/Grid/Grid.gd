@@ -14,6 +14,7 @@ const OVERLAY := [
 
 export(PackedScene) onready var ball_base_scene
 export(PackedScene) onready var empty_spot_scene
+export(Resource) onready var colors_pool = colors_pool as ColorScheme
 
 
 const ball_size := Vector2(64,64)
@@ -26,6 +27,7 @@ var empty_spots := {}
 var score : int # the lower the better. Best score is 1
 
 signal score_updated(score)
+
 
 
 func _on_mouse_hovering_ball(ball : Ball) -> void:
@@ -82,6 +84,10 @@ func clear_grid() -> void:
 
 func spawn_ball(gpos : Vector2) -> Ball:
 	var b : Ball = ball_base_scene.instance()
+	var colors = colors_pool.color_pairs[randi() % len(colors_pool.color_pairs)]
+	b.edge_color = colors[0]
+	b.fill_color_0 = colors[1]
+	b.fill_color_1 = colors[2]
 	add_child(b)
 	b.connect("mouse_hovering", self, "_on_mouse_hovering_ball")
 	balls[gpos] = b

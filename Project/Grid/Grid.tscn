@@ -1,13 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Balls/Ball.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Grid/Empty.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Balls/color_scheme.res" type="Resource" id=3]
 [ext_resource path="res://Grid/Grid.gd" type="Script" id=4]
 
-[sub_resource type="OpenSimplexNoise" id=1]
+[sub_resource type="OpenSimplexNoise" id=3]
 
 [sub_resource type="NoiseTexture" id=2]
-noise = SubResource( 1 )
+noise = SubResource( 3 )
 
 [node name="Grid" type="Node2D"]
 script = ExtResource( 4 )
@@ -16,6 +17,7 @@ __meta__ = {
 }
 ball_base_scene = ExtResource( 1 )
 empty_spot_scene = ExtResource( 2 )
+colors_pool = ExtResource( 3 )
 
 [node name="Position2D" type="Position2D" parent="."]
 position = Vector2( 576, 576 )
