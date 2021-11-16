@@ -31,6 +31,17 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="LabelMovesLeft" type="Label" parent="UI"]
+margin_left = 13.0
+margin_top = 58.0
+margin_right = 154.0
+margin_bottom = 94.0
+theme = ExtResource( 3 )
+text = "Moves : 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Overlay" type="ColorRect" parent="UI"]
 modulate = Color( 1, 1, 1, 0.745098 )
 light_mask = 2

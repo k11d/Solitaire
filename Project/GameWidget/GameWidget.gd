@@ -5,8 +5,8 @@ func init_grid() -> void:
 	$Grid.clear_grid()
 	$Grid.create_grid()
 
-func connect_score_value(listener : Node, method : String) -> void:
-	$Grid.connect("score_updated", listener, method)
+func connect_signal(sig : String, listener : Node, method : String) -> void:
+	$Grid.connect(sig, listener, method)
 
 func _unhandled_input(event: InputEvent) -> void:
 	if get_parent().game_state == get_parent().GameRunning:

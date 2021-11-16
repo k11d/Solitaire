@@ -51,11 +51,12 @@ func tween_fade_out_die() -> void:
 	yield(tween, "tween_completed")
 	queue_free()
 
-func tween_move_to(pos : Vector2) -> void:
+func tween_move_to(pos : Vector2, clear_empty_function : FuncRef) -> void:
 	z_index += 1
 	tween.interpolate_property(
 		self, "position", position, pos, 0.2,
 		Tween.TRANS_CUBIC, Tween.EASE_IN_OUT)
 	tween.start()
 	yield(tween, "tween_completed")
+	clear_empty_function.call_func()
 	z_index -= 1
