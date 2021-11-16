@@ -11,8 +11,12 @@ mouse_filter = 2
 theme = ExtResource( 3 )
 script = ExtResource( 2 )
 __meta__ = {
-"_edit_use_anchors_": false
+"_edit_horizontal_guides_": [ 40.0, 536.0 ],
+"_edit_use_anchors_": false,
+"_edit_vertical_guides_": [ 40.0, 536.0 ]
 }
+
+[node name="Timer" type="Timer" parent="."]
 
 [node name="GameWidget" parent="." instance=ExtResource( 1 )]
 mouse_filter = 2
@@ -21,10 +25,10 @@ mouse_filter = 2
 layer = 100
 
 [node name="LabelScore" type="Label" parent="UI"]
-margin_left = 13.0
-margin_top = 10.0
-margin_right = 154.0
-margin_bottom = 46.0
+margin_left = 40.0
+margin_top = 11.0
+margin_right = 164.0
+margin_bottom = 47.0
 theme = ExtResource( 3 )
 text = "Score : 0"
 __meta__ = {
@@ -32,12 +36,29 @@ __meta__ = {
 }
 
 [node name="LabelMovesLeft" type="Label" parent="UI"]
-margin_left = 13.0
-margin_top = 58.0
-margin_right = 154.0
-margin_bottom = 94.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 40.0
+margin_top = -68.0
+margin_right = 168.0
+margin_bottom = -32.0
 theme = ExtResource( 3 )
 text = "Moves : 0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LabelTime" type="Label" parent="UI"]
+anchor_left = 1.0
+anchor_right = 1.0
+margin_left = -151.0
+margin_top = 11.0
+margin_right = -40.0
+margin_bottom = 47.0
+grow_horizontal = 0
+theme = ExtResource( 3 )
+text = "Time : 0"
+align = 2
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -83,10 +104,11 @@ margin_bottom = 84.0
 disabled = true
 text = "Continue"
 
-[node name="ButtonSettings2" type="Button" parent="UI/StartMenu/VBoxContainer"]
+[node name="ButtonSettings" type="Button" parent="UI/StartMenu/VBoxContainer"]
 margin_top = 88.0
 margin_right = 139.0
 margin_bottom = 128.0
+disabled = true
 text = "Settings"
 
 [node name="ButtonQuit" type="Button" parent="UI/StartMenu/VBoxContainer"]
@@ -95,6 +117,7 @@ margin_right = 139.0
 margin_bottom = 172.0
 text = "Quit"
 
+[connection signal="timeout" from="Timer" to="." method="_on_Time_timeout"]
 [connection signal="pressed" from="UI/StartMenu/VBoxContainer/ButtonNewGame" to="." method="_on_ButtonNewGame_pressed"]
 [connection signal="pressed" from="UI/StartMenu/VBoxContainer/ButtonContinue" to="." method="_on_ButtonContinue_pressed"]
 [connection signal="pressed" from="UI/StartMenu/VBoxContainer/ButtonQuit" to="." method="_on_ButtonQuit_pressed"]

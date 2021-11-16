@@ -8,13 +8,12 @@ func init_grid() -> void:
 func connect_signal(sig : String, listener : Node, method : String) -> void:
 	$Grid.connect(sig, listener, method)
 
-func _unhandled_input(event: InputEvent) -> void:
-	if get_parent().game_state == get_parent().GameRunning:
-		if event is InputEventMouseButton:
-			if event.pressed:
-				$Grid.select_at(event.position)
-			else:
-				$Grid.try_move_picked_at(event.position)
+func mouse_down(pos):
+	$Grid.select_at(pos)
+
+func mouse_up(pos):
+	$Grid.try_move_picked_at(pos)
+
 
 func _on_GameWidget_item_rect_changed() -> void:
 	var grid_view_size = $Grid.grid_size * $Grid.ball_size
