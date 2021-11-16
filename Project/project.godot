@@ -18,10 +18,22 @@ _global_script_classes=[ {
 "class": "ColorScheme",
 "language": "GDScript",
 "path": "res://Balls/ColorScheme.gd"
+}, {
+"base": "Control",
+"class": "GameWidget",
+"language": "GDScript",
+"path": "res://GameWidget/GameWidget.gd"
+}, {
+"base": "Node2D",
+"class": "SGrid",
+"language": "GDScript",
+"path": "res://Grid/Grid.gd"
 } ]
 _global_script_class_icons={
 "Ball": "",
-"ColorScheme": ""
+"ColorScheme": "",
+"GameWidget": "",
+"SGrid": ""
 }
 
 [application]

@@ -1,4 +1,5 @@
 extends Node2D
+class_name SGrid
 
 const OVERLAY := [
 		['0','0','0','#','#','#','0','0','0'],
@@ -122,21 +123,18 @@ func move_ball(ball : Ball, intent_move : Vector2) -> void:
 		var _balls = get_tree().get_nodes_in_group("ball")
 		var _empties = get_tree().get_nodes_in_group("empty")
 		if balls[to_jmp_over] in _balls and balls[dest] in _empties:
-#			print("Before move, grid contains: %s balls and %s empty spots" % [len(_balls), len(_empties)])
+			# print("Before move, grid contains: %s balls and %s empty spots" % [len(_balls), len(_empties)])
 			balls[dest].free()
 			balls[dest] = ball
 			spawn_empty_spot(jmp_from)
 			balls[to_jmp_over].free()
 			spawn_empty_spot(to_jmp_over)
-#				balls[to_jmp_over].tween_fade_out_die()
-#				ball.tween_move_to(grid2real(dest), funcref(empty_dest, "queue_free"))
+			# balls[to_jmp_over].tween_fade_out_die()
+			# ball.tween_move_to(grid2real(dest), funcref(empty_dest, "queue_free"))
 			ball.position = grid2real(dest)
 			score -= 1
 			emit_signal("score_updated", score)
 			count_available_moves()
-#			_balls = get_tree().get_nodes_in_group("ball")
-#			_empties = get_tree().get_nodes_in_group("empty")
-#			print("After move, grid contains: %s balls and %s empty spots" % [len(_balls), len(_empties)])
 
 func count_available_moves() -> void:
 	var _balls = get_tree().get_nodes_in_group("ball")

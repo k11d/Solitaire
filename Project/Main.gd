@@ -1,14 +1,15 @@
 extends Control
 
 
-onready var game_widget = $GameWidget
-onready var overlay = $UI/Overlay
-onready var start_menu = $UI/StartMenu
-onready var button_continue = $UI/StartMenu/VBoxContainer/ButtonContinue
-onready var label_score = $UI/LabelScore
-onready var label_moves_left = $UI/LabelMovesLeft
-onready var label_time = $UI/LabelTime
-onready var timer = $Timer
+onready var game_widget = $GameWidget as GameWidget
+onready var grid : SGrid
+onready var overlay = $UI/Overlay as ColorRect
+onready var start_menu = $UI/StartMenu as CenterContainer
+onready var button_continue = $UI/StartMenu/VBoxContainer/ButtonContinue as Button
+onready var label_score = $UI/LabelScore as Label
+onready var label_moves_left = $UI/LabelMovesLeft as Label
+onready var label_time = $UI/LabelTime as Label
+onready var timer = $Timer as Timer
 
 
 enum {
@@ -16,7 +17,6 @@ enum {
 	GameRunning
 }
 var game_state = GamePaused
-
 
 
 func _ready():
@@ -35,27 +35,13 @@ func _unhandled_input(event: InputEvent) -> void:
 			else:
 				game_widget.mouse_up(event.position)
 
-func _on_ButtonQuit_pressed() -> void:
-	get_tree().quit()
-
-func _on_ButtonNewGame_pressed() -> void:
-	new_game()
-
-func _on_ButtonContinue_pressed() -> void:
-	toggle_pause()
-
-func _on_score_updated(score) -> void:
-	label_score.text = "Score : %d" % score
-
-func _on_available_moves_updated(moves) -> void:
-	label_moves_left.text = "Moves : %d" % moves
-
 func new_game() -> void:
 	overlay.hide()
 	start_menu.hide()
-	game_widget.init_grid()
+	grid = game_widget.init_grid()
 	button_continue.disabled = false
 	game_state = GameRunning
+	timer.stop()
 	timer.paused = false
 	timer.start(1.0)
 
@@ -70,6 +56,21 @@ func toggle_pause() -> void:
 		timer.paused = false
 		overlay.hide()
 		start_menu.hide()
+
+func _on_ButtonQuit_pressed() -> void:
+	get_tree().quit()
+
+func _on_ButtonNewGame_pressed() -> void:
+	new_game()
+
+func _on_ButtonContinue_pressed() -> void:
+	toggle_pause()
+
+func _on_score_updated(score) -> void:
+	label_score.text = "Score : %d" % score
+
+func _on_available_moves_updated(moves) -> void:
+	label_moves_left.text = "Moves : %d" % moves
 
 func _on_Time_timeout() -> void:
 	timer.start(1.0)

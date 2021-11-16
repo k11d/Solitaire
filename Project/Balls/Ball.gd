@@ -60,3 +60,4 @@ func tween_move_to(pos : Vector2, clear_empty_function : FuncRef) -> void:
 	yield(tween, "tween_completed")
 	clear_empty_function.call_func()
 	z_index -= 1
+
